@@ -3,9 +3,8 @@ import Version1 from './version1';
 import Version2 from './version2';
 
 export default function Home() {
-  //const buttonColorChange = useFeature("button-color").on;
+  const buttonColorChange = useFeature("button-color").on;
   
-  /*
   if (buttonColorChange) {
     return (
       <Version2></Version2>
@@ -15,5 +14,4 @@ export default function Home() {
       <Version1></Version1>
     )
   }
-  */
 }
