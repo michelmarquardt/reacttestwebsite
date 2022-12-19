@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     // Set user attributes for targeting (from cookie, auth system, etc.)
     growthbook.setAttributes({
-      id: "456", //123 - A/B nicht getriggert, 456 - A/B getriggert.
+      id: "123", //123 - A/B nicht getriggert, 456 - A/B getriggert.
       company: "test",
     });
   }, []);
