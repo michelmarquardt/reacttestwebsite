@@ -2,8 +2,12 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from "react";
 import { GrowthBook, GrowthBookProvider, useFeature } from "@growthbook/growthbook-react";
+import { KameleoonProvider, createClient } from '@kameleoon/react-sdk';
+import { useActivateFeature } from '@kameleoon/react-sdk/dist/useActivateFeature';
+import { useVisitorCode } from '@kameleoon/react-sdk/dist/useVisitorCode';
+import { KameleoonException } from '@kameleoon/react-sdk/dist/constants';
 
-
+/** 
 // Create a GrowthBook instance
 const growthbook = new GrowthBook({
   // enableDevMode: true allows you to use the Chrome DevTools Extension to test/debug.
@@ -18,9 +22,17 @@ const growthbook = new GrowthBook({
 });
 
 const FEATURES_ENDPOINT = "http://localhost:3100/api/features/prod_NMWLrDODi3iTeNgRClOycyeU0Vg8mgsHMuA4e40W5Q";
+*/
+
+const client = createClient({
+  siteCode: "aafodtplsu",
+  options: {
+    environment: 'production'
+  }
+})
 
 export default function App({ Component, pageProps }: AppProps) {
-  
+  /** 
   useEffect(() => {
     // Load feature definitions from GrowthBook API
     fetch(FEATURES_ENDPOINT)
@@ -35,11 +47,11 @@ export default function App({ Component, pageProps }: AppProps) {
     });
   }, []);
   
-  
+  */
 
   return (
-    <GrowthBookProvider>
+    <KameleoonProvider client={client}>
       <Component {...pageProps}/>
-    </GrowthBookProvider>
+    </KameleoonProvider>
   )
 }
